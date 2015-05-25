@@ -8,10 +8,27 @@ namespace FastEval
 		public delegate void RaiseEvent (float raiseTo);
 		public delegate void AllInEvent (float total);
 
+		public static event GameEvent GameStart, GameOver, CalcAccount, EndCalcAccount;
 		public static event GameEvent Preflop, Flop, Turn, River;
 		public static event GameEvent Call;
 		public static event RaiseEvent Raise;
 		public static event AllInEvent AllIn;
+
+		public static void TriggerGameStart ()
+		{
+			if (GameStart != null) 
+			{
+				GameStart ();
+			}
+		}
+
+		public static void TriggerGameOver ()
+		{
+			if (GameOver != null) 
+			{
+				GameOver ();
+			}
+		}
 
 		public static void TriggerPreflop ()
 		{
@@ -54,6 +71,22 @@ namespace FastEval
 		{
 			if (AllIn != null)
 				AllIn (total);
+		}
+
+		public static void TriggerCalcAccount ()
+		{
+			if (CalcAccount != null)
+			{
+				CalcAccount ();
+			}
+		}
+
+		public static void TriggerEndCalcAccount ()
+		{
+			if (EndCalcAccount != null)
+			{
+				EndCalcAccount ();
+			}
 		}
 	}
 }

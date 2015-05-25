@@ -65,6 +65,26 @@ namespace FastEval
 
 		}
 
+		private void GameStart ()
+		{
+
+		}
+
+		private void GameOver ()
+		{
+			NextRound ();
+		}
+
+		private void NextRound ()
+		{
+
+		}
+
+		private void EndCalcAccount ()
+		{
+			GameEventManager.TriggerGameOver ();
+		}
+
 
 	}
 }
