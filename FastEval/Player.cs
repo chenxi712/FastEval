@@ -10,9 +10,9 @@ namespace FastEval
 	public class Player
 	{
 		private string name;
-		private float cash;
+		private int cash;
 		private PlayerState state;
-		private int seatIdx;
+		private int seatId;
 		private Hand hand;
 
 		public string Name
@@ -33,10 +33,10 @@ namespace FastEval
 			set { state = value; }
 		}
 
-		public int ChairIndex
+		public int SeatId
 		{
-			get { return seatIdx; }
-			set { seatIdx = value; }
+			get { return seatId; }
+			set { seatId = value; }
 		}
 
 		public Hand HandValue

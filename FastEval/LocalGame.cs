@@ -10,14 +10,15 @@ namespace FastEval
 
 	public class LocalGame
 	{
-		private float pot;
-		private float smallBlind;
-		private float bigBlind;
+		private int pot;
+		private int smallBlind;
+		private int bigBlind;
 		private int numOfPlayers;
 
 		private RuleTypes ruleType;
-		private List<Player> players;
-		private List<string> deck = new List<string> ();
+		private Dictionary<int, Player> players;
+		private List<string> deck;
+		private string board;
 
 		public RuleTypes GameType
 		{
@@ -25,9 +26,26 @@ namespace FastEval
 			set { ruleType = value; }
 		}
 
+		public int NumOfPlayer 
+		{
+			get { return players.Count; }
+		}
+
+		public string Board
+		{
+			get { return board; }
+			set { board = value; }
+		}
+
 		public LocalGame ()
 		{
 			InitDeck ();
+		}
+
+		private void InitData ()
+		{
+			players = new Dictionary<int, Player> ();
+			deck = new List<string> ();
 		}
 
 		private void InitDeck ()
@@ -85,7 +103,30 @@ namespace FastEval
 			GameEventManager.TriggerGameOver ();
 		}
 
+		private void Call (int seatId, int money)
+		{
 
+		}
+
+		private void Raise (int seatId, int raiseTo)
+		{
+
+		}
+			
+		private void AllIn (int seatId, int money)
+		{
+
+		}
+
+		private void Check (int seatId)
+		{
+
+		}
+
+		private void Fold (int seatId)
+		{
+
+		}
 	}
 }
 
