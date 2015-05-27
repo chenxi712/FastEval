@@ -21,7 +21,7 @@ namespace FastEval
 			set { name = value; }
 		}
 
-		public float Cash
+		public int Cash
 		{
 			get { return cash; }
 			set { cash = value; }
@@ -43,6 +43,16 @@ namespace FastEval
 		{
 			get { return hand; }
 			set { hand = value; }
+		}
+
+		public  Player ()
+		{
+			cash = 0;
+		}
+
+		public Player (int cash)
+		{
+			this.cash = cash;
 		}
 	}
 }

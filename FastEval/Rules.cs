@@ -8,19 +8,23 @@ namespace FastEval
 		Limit, PotLimit, NoLimit 
 	}
 
-	public class LocalGame
+	public class Rules
 	{
-		private int pot;
+		private int potSize;
 		private int smallBlind;
 		private int bigBlind;
-		private int numOfPlayers;
+		private const int maxNumOfPlayers = 10;
 
 		private RuleTypes ruleType;
 		private Dictionary<int, Player> players;
 		private List<string> deck;
-		private string board;
+		private string flop;
+		private string turn;
+		private string river;
 
-		public RuleTypes GameType
+		private static Rules instance;
+
+		public RuleTypes RuleTypeValue
 		{
 			get { return ruleType; }
 			set { ruleType = value; }
@@ -37,19 +41,37 @@ namespace FastEval
 			set { board = value; }
 		}
 
-		public LocalGame ()
+		public static Rules GetInstance ()
 		{
+			if (instance == null)
+			{
+				instance = new Rules ();
+			}
+			return instance;
+		}
+
+		public Rules ()
+		{
+			InitData ();
 			InitDeck ();
 		}
 
 		private void InitData ()
 		{
 			players = new Dictionary<int, Player> ();
-			deck = new List<string> ();
+			for (int i = 0; i < maxNumOfPlayers; ++i)
+			{
+				players.Add (i, null);
+			}
 		}
 
 		private void InitDeck ()
 		{
+			if (deck == null)
+				deck = new List<string> ();
+			else
+				deck.Clear ();
+				
 			string[] suits = { "s", "h", "c", "d" };
 			string[] ranks = {"a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"};
 			for (int i = 0; i < suits.Length; ++i) 
@@ -61,7 +83,7 @@ namespace FastEval
 			}
 		}
 
-		private void Shuffle ()
+		public void Shuffle ()
 		{
 			Random r = new Random (DateTime.Now.Millisecond);
 			for (int i = 0; i < deck.Count; ++i) 
@@ -126,6 +148,29 @@ namespace FastEval
 		private void Fold (int seatId)
 		{
 
+		}
+
+		public int SitDown (Player player)
+		{
+			foreach (KeyValuePair<int, Player> kv in players)
+			{
+				if (kv.Value == null)
+				{
+					kv.Value = player;
+					return kv.Key;
+				}
+			}
+		}
+
+		public int GetNumOfPlayer ()
+		{
+			int count = 0;
+			foreach (KeyValuePair<int, Player> kv in players)
+			{
+				if (kv.Value != null)
+					++count;
+			}
+			return count;
 		}
 	}
 }

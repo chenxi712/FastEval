@@ -1,5 +1,0 @@
-/Users/chenxi/Tools/PokerTH/Texas Holdem Hand Evaluation and Analysis/MonoProject/FastEval/FastEval/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
-/Users/chenxi/Tools/PokerTH/Texas Holdem Hand Evaluation and Analysis/MonoProject/FastEval/FastEval/bin/Debug/FastEval.exe.mdb
-/Users/chenxi/Tools/PokerTH/Texas Holdem Hand Evaluation and Analysis/MonoProject/FastEval/FastEval/bin/Debug/FastEval.exe
-/Users/chenxi/Tools/PokerTH/Texas Holdem Hand Evaluation and Analysis/MonoProject/FastEval/FastEval/obj/x86/Debug/FastEval.exe
-/Users/chenxi/Tools/PokerTH/Texas Holdem Hand Evaluation and Analysis/MonoProject/FastEval/FastEval/obj/x86/Debug/FastEval.exe.mdb

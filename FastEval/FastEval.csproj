@@ -41,10 +41,12 @@
     <Compile Include="libs\HandIterator.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="GameEventManager.cs" />
-    <Compile Include="LocalGame.cs" />
+    <Compile Include="Utils\MathUtils.cs" />
+    <Compile Include="Rules.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="libs\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 </Project>
